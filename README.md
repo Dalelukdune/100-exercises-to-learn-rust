@@ -1,5 +1,7 @@
 # Learn Rust, one exercise at a time
 
+__NOTE__: This repository contains my personal solutions for the 100 Exercises of Rust by [Mainmatter](https://mainmatter.com/rust-consulting/)
+
 You've heard about Rust, but you never had the chance to try it out?\
 This course is for you!
 
