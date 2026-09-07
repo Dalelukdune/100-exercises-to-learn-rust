@@ -1,8 +1,3 @@
-// TODO: Define a new trait, `Power`, that has a method `power` that raises `self`
-//  to the power of `n`.
-//  The trait definition and its implementations should be enough to get
-//  the tests to compile and pass.
-//
 // Recommendation: you may be tempted to write a generic implementation to handle
 // all cases at once. However, this is fairly complicated and requires the use of
 // additional crates (i.e. `num-traits`).
@@ -12,6 +7,59 @@
 // interested in learning more about it.
 // You don't have to though: it's perfectly okay to write three separate
 // implementations manually. Venture further only if you're curious.
+
+
+trait Power<Exponent> {
+    type Output;
+
+    fn power(&self, exponent: Exponent) -> Self::Output;
+}
+
+
+impl Power<u32> for u32 {
+    type Output = u32;
+
+    fn power(&self, exponent: u32) -> Self::Output {
+        let mut result = 1;
+
+        for _ in 0..exponent {
+            result *= self;
+        }
+
+        result
+    }
+}
+
+
+impl Power<u16> for u32 {
+    type Output = u32;
+
+    fn power(&self, exponent: u16) -> Self::Output {
+        let mut result = 1;
+
+        for _ in 0..exponent {
+            result *= self;
+        }
+
+        result
+    }
+}
+
+
+impl Power<&u32> for u32 {
+    type Output = u32;
+
+    fn power(&self, exponent: &u32) -> Self::Output {
+        let mut result = 1;
+
+        for _ in 0..*exponent {
+            result *= self;
+        }
+
+        result
+    }
+}
+
 
 #[cfg(test)]
 mod tests {
