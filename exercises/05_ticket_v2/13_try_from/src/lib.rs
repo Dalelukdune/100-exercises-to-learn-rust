@@ -1,11 +1,57 @@
-// TODO: Implement `TryFrom<String>` and `TryFrom<&str>` for `Status`.
-//  The parsing should be case-insensitive.
-
 #[derive(Debug, PartialEq, Clone)]
 enum Status {
     ToDo,
     InProgress,
     Done,
+}
+
+#[derive(thiserror::Error, Debug)]
+enum StatusConversionError {
+    #[error("{0}")]
+    InvalidStringInput(String)
+}
+
+impl TryFrom<String> for Status {
+    type Error = StatusConversionError;
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        if value.to_lowercase() == String::from("todo") {
+            return Ok(Status::ToDo)
+        }
+
+        if value.to_lowercase() == String::from("inprogress") {
+            return Ok(Status::InProgress)
+        }
+
+        if value.to_lowercase() == String::from("done") {
+            return Ok(Status::Done)
+        }
+
+        Err(StatusConversionError::InvalidStringInput(
+            "To make conversion value should be either `ToDo`, `InProgress` or `Done`".into()
+        ))
+    }
+}
+
+impl TryFrom<&str> for Status {
+    type Error = StatusConversionError;
+
+    fn try_from(value: &str) -> Result<Self, Self::Error> {
+        if value.to_lowercase() == "todo" {
+            return Ok(Status::ToDo)
+        }
+
+        if value.to_lowercase() == "inprogress" {
+            return Ok(Status::InProgress)
+        }
+
+        if value.to_lowercase() == "done" {
+            return Ok(Status::Done)
+        }
+
+        Err(StatusConversionError::InvalidStringInput(
+            "To make conversion value should be either `ToDo`, `InProgress` or `Done`".into()
+        ))
+    }
 }
 
 #[cfg(test)]
