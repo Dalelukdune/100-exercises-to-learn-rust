@@ -317,7 +317,7 @@ dependencies = [
 name = "locks"
 version = "0.1.0"
 dependencies = [
- "thiserror",
+ "thiserror 1.0.69",
  "ticket_fields",
 ]
 
@@ -421,7 +421,7 @@ dependencies = [
 name = "patch"
 version = "0.1.0"
 dependencies = [
- "thiserror",
+ "thiserror 1.0.69",
  "ticket_fields",
 ]
 
@@ -485,7 +485,7 @@ dependencies = [
 name = "rwlock"
 version = "0.1.0"
 dependencies = [
- "thiserror",
+ "thiserror 1.0.69",
  "ticket_fields",
 ]
 
@@ -548,7 +548,7 @@ name = "source"
 version = "0.1.0"
 dependencies = [
  "common",
- "thiserror",
+ "thiserror 1.0.69",
 ]
 
 [[package]]
@@ -596,6 +596,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "syn"
+version = "3.0.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "12df2e0110f65b775f769bb17ef989067a1d931b2eb822bd4346631eeada89f9"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "unicode-ident",
+]
+
+[[package]]
 name = "sync"
 version = "0.1.0"
 
@@ -609,7 +620,16 @@ version = "1.0.69"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b6aaf5339b578ea85b50e080feb250a3e8ae8cfcdff9a461c9ec2904bc923f52"
 dependencies = [
- "thiserror-impl",
+ "thiserror-impl 1.0.69",
+]
+
+[[package]]
+name = "thiserror"
+version = "2.0.20"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ec86235f5fcc2a73650310756d2ac5b138a5780bbbdfae3eeccec992c435ba4f"
+dependencies = [
+ "thiserror-impl 2.0.20",
 ]
 
 [[package]]
@@ -620,7 +640,18 @@ checksum = "4fee6c4efc90059e10f81e6d42c60a18f76588c3d74cb83a0b242a2b6c7504c1"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn",
+ "syn 2.0.117",
+]
+
+[[package]]
+name = "thiserror-impl"
+version = "2.0.20"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bc04cd3e1236dd4a98afca4569f2deb3f120e5422a4023be2cb683f8486292af"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 3.0.5",
 ]
 
 [[package]]
@@ -628,6 +659,7 @@ name = "thiserror_"
 version = "0.1.0"
 dependencies = [
  "common",
+ "thiserror 2.0.20",
 ]
 
 [[package]]
@@ -639,7 +671,7 @@ name = "ticket_fields"
 version = "0.1.0"
 dependencies = [
  "common",
- "thiserror",
+ "thiserror 1.0.69",
 ]
 
 [[package]]
@@ -667,7 +699,7 @@ checksum = "385a6cb71ab9ab790c5fe8d67f1645e6c450a7ce006a33de03daa956cf70a496"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn",
+ "syn 2.0.117",
 ]
 
 [[package]]
