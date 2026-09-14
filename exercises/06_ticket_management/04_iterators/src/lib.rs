@@ -1,9 +1,5 @@
 use ticket_fields::{TicketDescription, TicketTitle};
 
-// TODO: Let's start sketching our ticket store!
-//  First task: implement `IntoIterator` on `TicketStore` to allow iterating over all the tickets
-//  it contains using a `for` loop.
-//
 // Hint: you shouldn't have to implement the `Iterator` trait in this case.
 //   You want to *delegate* the iteration to the `Vec<Ticket>` field in `TicketStore`.
 //   Look at the standard library documentation for `Vec` to find the right type
@@ -36,6 +32,15 @@ impl TicketStore {
 
     pub fn add_ticket(&mut self, ticket: Ticket) {
         self.tickets.push(ticket);
+    }
+}
+
+impl IntoIterator for TicketStore {
+    type Item = Ticket;
+    type IntoIter = std::vec::IntoIter<Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.tickets.into_iter()
     }
 }
 
