@@ -1,7 +1,5 @@
 use ticket_fields::{TicketDescription, TicketTitle};
 
-// TODO: Provide an `iter` method that returns an iterator over `&Ticket` items.
-//
 // Hint: just like in the previous exercise, you want to delegate the iteration to
 //   the `Vec<Ticket>` field in `TicketStore`. Look at the standard library documentation
 //   for `Vec` to find the right type to return from `iter`.
@@ -33,6 +31,10 @@ impl TicketStore {
 
     pub fn add_ticket(&mut self, ticket: Ticket) {
         self.tickets.push(ticket);
+    }
+
+    pub fn iter(&self) -> std::slice::Iter<'_, Ticket> {
+        self.tickets.iter()
     }
 }
 
