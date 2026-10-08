@@ -1,5 +1,3 @@
-// TODO: fix the `assert_eq` at the end of the tests.
-//  Do you understand why that's the resulting output?
 use std::time::Duration;
 use tokio::io::AsyncReadExt;
 use tokio::net::TcpListener;
@@ -46,6 +44,6 @@ mod tests {
 
         let buffered = handle.await.unwrap();
         let buffered = std::str::from_utf8(&buffered).unwrap();
-        assert_eq!(buffered, "");
+        assert_eq!(buffered, "hefrthta");
     }
 }
